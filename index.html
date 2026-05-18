@@ -1,4 +1,368 @@
+ </>html
+
+<!DOCTYPE html>
 <html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helenes Naschwerk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f7f3ef;
+      color: #4b4038;
+      line-height: 1.7;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1280px;
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247,243,239,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201,165,92,0.15);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo img {
+      width: 170px;
+      border-radius: 0;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 34px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #c6a46c;
+    }
+
+    .btn {
+      background: #c6a46c;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 40px;
+      display: inline-block;
+      transition: 0.3s;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      background: #b28f56;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 90px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .subtitle {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #c6a46c;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      line-height: 1.05;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .script {
+      font-family: 'Great Vibes', cursive;
+      color: #c6a46c;
+      font-size: 4rem;
+      font-weight: normal;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 520px;
+      margin-bottom: 35px;
+      color: #6a5b50;
+    }
+
+    .hero-image img {
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .about {
+      background: #fffdfb;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .gold {
+      color: #c6a46c;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 28px;
+      margin-top: 50px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .seasonal {
+      background: linear-gradient(rgba(61,48,39,0.65), rgba(61,48,39,0.65)), url('images/saisonal.jpg') center/cover;
+      color: white;
+      text-align: center;
+    }
+
+    .seasonal h2,
+    .seasonal p {
+      color: white;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 50px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact-links {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      color: #8b7c72;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        gap: 18px;
+        font-size: 0.8rem;
+      }
+
+      h1 {
+        font-size: 3.3rem;
+      }
+
+      .script {
+        font-size: 3rem;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .script {
+        font-size: 2.5rem;
+      }
+
+      .contact-box {
+        padding: 35px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">
+         <img src="images/logo.png" alt="Helenes Naschwerk Logo">
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#kreationen">Kreationen</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="subtitle">Meisterkonditorei</div>
+
+      <h1>
+        Mit Liebe gebacken.<br>
+        <span class="script">Für besondere Momente.</span>
+      </h1>
+
+      <p>
+        Individuelle Torten, feine Pralinen und saisonale Köstlichkeiten aus Meisterhand.
+        Handgemacht mit Liebe zum Detail.
+      </p>
+
+      <a class="btn" href="#kontakt">Jetzt anfragen</a>
+    </div>
+
+    <div class="hero-image">
+            <img src="images/hochzeitstorte.jpg" alt="Hochzeitstorte von Helenes Naschwerk">
+    </div>
+
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="container about-grid">
+
+    <div>
+           <img src="images/konditormeisterin.jpg" alt="Konditormeisterin Helena">
+    </div>
+
+    <div>
+      <div class="subtitle">Konditormeisterin</div>
+
+      <h2>Handwerk mit <span class="gold">Herz</span> und Leidenschaft</h2>
+
+      <p>
+        Ich bin Konditormeisterin aus Leidenschaft und fertige jede Torte,
+        jede Praline und jedes Dessert mit größter Sorgfalt und Liebe zum Detail.
+        Qualität, Kreativität und ehrliche Zutaten stehen bei mir an erster Stelle.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="kreationen">
+  <div class="container">
+
+    <div class="subtitle">Meine Kreationen</div>
+    <h2>Süße Köstlichkeiten</h2>
+
+    <div class="gallery-grid">
+
+      <div class="card">
+        <img src="images/torte1.jpg" alt="Torte">
+        <div class="card-content">
+          <h3>Torten</h3>
+          <p>Individuell gestaltet für Hochzeiten, Geburtstage und besondere Anlässe.</p>
+        </div>
       </div>
 
       <div class="card">
