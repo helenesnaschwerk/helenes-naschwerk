@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -286,7 +285,7 @@
 <header>
   <div class="container nav">
     <div class="logo">
-         <img src="images/logo.png" alt="Helenes Naschwerk Logo">
+      <img src="images/logo.png" alt="Helenes Naschwerk Logo">
     </div>
 
     <nav>
@@ -320,7 +319,7 @@
     </div>
 
     <div class="hero-image">
-            <img src="images/hochzeitstorte.jpg" alt="Hochzeitstorte von Helenes Naschwerk">
+      <img src="images/hochzeitstorte.jpg" alt="Hochzeitstorte von Helenes Naschwerk">
     </div>
 
   </div>
@@ -330,7 +329,7 @@
   <div class="container about-grid">
 
     <div>
-           <img src="images/konditormeisterin.jpg" alt="Konditormeisterin Helena">
+      <img src="images/konditormeisterin.jpg" alt="Konditormeisterin Helena">
     </div>
 
     <div>
@@ -356,7 +355,8 @@
 
     <div class="gallery-grid">
 
-      <div class="card">
+     
+      <div class="card" onclick="openGallery(['images/torte1.jpg','images/hochzeitstorte.jpg'])">
         <img src="images/torte1.jpg" alt="Torte">
         <div class="card-content">
           <h3>Torten</h3>
@@ -364,7 +364,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="openGallery(['images/pralinen.jpg'])">
         <img src="images/pralinen.jpg" alt="Pralinen">
         <div class="card-content">
           <h3>Pralinen</h3>
@@ -372,7 +372,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="openGallery(['images/dessert.jpg'])">
         <img src="images/dessert.jpg" alt="Desserts">
         <div class="card-content">
           <h3>Desserts</h3>
@@ -380,7 +380,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" onclick="openGallery(['images/saisonal2.jpg','images/saisonal.jpg'])">
         <img src="images/saisonal2.jpg" alt="Saisonale Kreationen">
         <div class="card-content">
           <h3>Saisonales</h3>
@@ -427,6 +427,43 @@
 <footer>
   Helenes Naschwerk • Meisterkonditorei • Mit Liebe handgemacht
 </footer>
+
+<div id="galleryModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; flex-direction:column; padding:20px;">
+  <span onclick="closeGallery()" style="position:absolute; top:30px; right:40px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+
+  <img id="galleryImage" src="" style="max-width:90%; max-height:80vh; border-radius:18px; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+
+  <div style="margin-top:20px; display:flex; gap:20px;">
+    <button onclick="prevImage()" class="btn">Zurück</button>
+    <button onclick="nextImage()" class="btn">Weiter</button>
+  </div>
+</div>
+
+<script>
+let galleryImages = [];
+let currentImage = 0;
+
+function openGallery(images) {
+  galleryImages = images;
+  currentImage = 0;
+  document.getElementById('galleryModal').style.display = 'flex';
+  document.getElementById('galleryImage').src = galleryImages[currentImage];
+}
+
+function closeGallery() {
+  document.getElementById('galleryModal').style.display = 'none';
+}
+
+function nextImage() {
+  currentImage = (currentImage + 1) % galleryImages.length;
+  document.getElementById('galleryImage').src = galleryImages[currentImage];
+}
+
+function prevImage() {
+  currentImage = (currentImage - 1 + galleryImages.length) % galleryImages.length;
+  document.getElementById('galleryImage').src = galleryImages[currentImage];
+}
+</script>
 
 </body>
 </html>
